@@ -1,63 +1,70 @@
-E-Commerce Data Analysis and Narrative Generation
-Project Overview
+# E-Commerce Data Analysis
 
-This project analyzes e-commerce data using SQL and Python to generate reports, visualizations, and business insights.
+## Project Overview
 
-1. Database Setup and SQL Reports
+This project analyzes e-commerce data using SQL and Python to generate reports, explore trends, visualize key metrics, and produce business insights.
 
-Install MySQL and create the project database. Open a terminal in the repository root and connect to MySQL:
+## 1. Database Setup and SQL Reports
 
-mysql -u root -p
+From the repository root, execute the SQL scripts in this order: schema, seed data, and reports.
 
+For SQLite (if the scripts are compatible):
 
-Run the following commands inside the MySQL prompt in the given order:
+```bash
+sqlite3 ecommerce.db < sql/schema.sql
+sqlite3 ecommerce.db < sql/seed_data.sql
+sqlite3 ecommerce.db < sql/reports.sql
+```
 
-CREATE DATABASE ecommerce;
-USE ecommerce;
-SOURCE sql/schema.sql;
-SOURCE sql/seed_data.sql;
-SOURCE sql/reports.sql;
+These scripts create the database structure, load the data, and generate analytical reports.
 
+## 2. Data Cleaning, EDA, and Visualizations
 
-The input CSV files are stored in the data/ directory. The SQL scripts create the schema, load the data, and generate analytical reports.
+Install Python and the required dependencies:
 
-2. Data Analysis and Visualization
+```bash
+pip install pandas matplotlib seaborn
+```
 
-Install Python and the required dependencies. From the repository root, run:
+Run the analysis scripts in order:
 
+```bash
 python analysis/clean_and_eda.py
 python analysis/visualize.py
+```
 
+The scripts clean the data, perform exploratory data analysis, and generate visualizations in the `visualizations/` directory.
 
-Task 5 of Part 2 writes the analysis findings to narrator/findings.json.
+**Task 5 of Part 2** writes the findings to `narrator/findings.json`. Ensure this task is completed before generating the narrative.
 
-The visualization script generates charts, including:
+## 3. Narrative Generation
 
-visualizations/return_rate_by_payment.png
-visualizations/monthly_revenue_trend.png
-3. Generate the Business Narrative
+Run the narrative generator using a Gemini API key or its offline mode.
 
-To use Gemini, set your API key as an environment variable.
+**With a Gemini API key**
 
 Linux/macOS:
 
+```bash
 export GEMINI_API_KEY="your_api_key"
 python narrator/generate_narrative.py
-
+```
 
 Windows PowerShell:
 
+```powershell
 $env:GEMINI_API_KEY="your_api_key"
 python narrator/generate_narrative.py
+```
 
+**Without an API key (offline mode)**
 
-Offline mode (without an API key):
-
+```bash
 python narrator/generate_narrative.py
+```
 
+The offline path depends on the fallback implemented in the script.
 
-When no API key is set, the script should use its offline fallback, if implemented.
+## Reproducibility
 
-Reproducibility
-
-Run the steps in order, using the same CSV files and database configuration to reproduce the reports, findings, and visualizations. Verify dependencies and offline behavior against the actual scripts.
+Run every step from the repository root and in the order shown above. Use the same source datasets, dependencies, database configuration, and analysis settings to reproduce the results.
