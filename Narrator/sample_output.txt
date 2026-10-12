@@ -1,1 +1,8 @@
+## Situation
+Following clean data reconciliation, Mamaearth's verified total revenue stands at ₹97,358.30 across 175 validated transactions. Initial audit totals of ₹99,860.20 reflected an overstatement of ₹2,501.90, which was completely attributed to 5 duplicate order logs. Temporal de-biasing reveals that after removing January's bulk order spikes, March emerged as the genuine peak revenue month at ₹20,318.90.
 
+## Complication
+Delivery operations face significant margin erosion from Cash on Delivery (COD) transactions, which exhibit a 44.4% return rate compared to 14.7% for Card and 18.9% for UPI. This problem is acutely concentrated in Tier-2 regions, where the COD return rate climbs to an alarming 54.5%, representing the highest-risk operational segment.
+
+## Resolution
+Implement dynamic checkout interventions immediately by capping COD allowances in Tier-2 cities and introducing a 5% discount incentive for UPI/Card pre-payments. Additionally, deploy automated WhatsApp verification for Tier-2 cash orders to lower delivery refusals and protect net revenue.
